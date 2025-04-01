@@ -10,16 +10,16 @@ def init_opt(wbo, conf_file, hparams):
     conf_file_name = conf_file.split('.')[-1]
     log_path = os.path.join(hparams['result_dir'], conf_file_name)
     
-    if os.path.isfile(log_path):
-        print(f"Resuming opt {log_path}")
-        logger = read_pickle(log_path)
-        hparams = logger.confs
-        ne, _ = logger.get_last_adv_tok(best=True)
-    else:
-        print(f"Init opt {log_path}")
-        # init/load log file
-        logger = Logger(hparams)
-        # init Neural Exec
+    #if os.path.isfile(log_path):
+    #    print(f"Resuming opt {log_path}")
+    #    logger = read_pickle(log_path)
+    #    hparams = logger.confs
+    #    ne, _ = logger.get_last_adv_tok(best=True)
+    #else:
+    print(f"Init opt {log_path}")
+    # init/load log file
+    logger = Logger(hparams)
+    # init Neural Exec
         if 'boostrap_seed' in hparams:
             print("init_adv_seg boostrapping...")
             ne = wbo.init_adv_seg_boot(*hparams['boostrap_seed'], hparams['sep'])
