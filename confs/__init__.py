@@ -17,7 +17,7 @@ hparams = {
     'batch_size_eval' : 10,
     
     # number of opt rounds
-    'number_of_rounds' : 500,
+    'number_of_rounds' : 2500,
     
     # evaluation frequency (in steps) 
     'eval_fq' : 5,   
